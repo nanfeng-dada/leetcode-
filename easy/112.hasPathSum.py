@@ -21,6 +21,7 @@ class Solution:
             if node.right:
                 q.append((cursum + node.right.val, node.right))
         return sum in allsum
+
 # 采用递归,递归返回值一般可通过and or max min 等去构造
 class Solution:
     def hasPathSum(self, root: TreeNode, sum: int) -> bool:
@@ -31,3 +32,4 @@ class Solution:
         else:
             return self.hasPathSum(root.right,sum-root.val) or \
                    self.hasPathSum(root.left,sum-root.val)
+

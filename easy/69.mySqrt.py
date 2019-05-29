@@ -12,27 +12,29 @@ class Solution1:
    def mySqrt(self, x: int) -> int:
        return int(x**0.5)
 
-#二分查找超时
+#二分查找
 class Solution2:
     def mySqrt(self, x: int) -> int:
-        if x==0 or x==1:
+        if x == 0 or x == 1:
             return x
-        low=0
-        up=x
-        mid=(low+up)/2
-        while (up>low):
-            if mid>x/mid:
-                up=mid
-            elif mid<x/mid:
-                low=mid
+        low = 0
+        up = x
+
+        while (up >= low):
+            mid = (low + up) // 2
+            if mid > x / mid:
+                up = mid - 1
+            elif mid < x / mid:
+                low = mid + 1
             else:
-                return int(mid)
-            mid=(up+low)/2
+                return mid
+        return up
+
 
 
 
 if __name__=='__main__':
-    num=9
+    num=8
     a=Solution1()
 
     print(a.mySqrt(num))
